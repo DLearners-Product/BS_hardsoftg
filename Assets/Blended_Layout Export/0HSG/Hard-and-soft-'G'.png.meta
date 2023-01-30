@@ -1,0 +1,1136 @@
+fileFormatVersion: 2
+guid: 088801d8a14a86644b44e6010ba7655d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1105130876700962893
+    second: Hard-and-soft-'G'_0
+  - first:
+      213: 254895855014179335
+    second: Hard-and-soft-'G'_1
+  - first:
+      213: 2765148414743632004
+    second: Hard-and-soft-'G'_2
+  - first:
+      213: -6687381940352396204
+    second: Hard-and-soft-'G'_3
+  - first:
+      213: 3620182278672630846
+    second: Hard-and-soft-'G'_4
+  - first:
+      213: -279975863953078037
+    second: Hard-and-soft-'G'_5
+  - first:
+      213: -7189864772936742234
+    second: Hard-and-soft-'G'_6
+  - first:
+      213: 703538917382158979
+    second: Hard-and-soft-'G'_7
+  - first:
+      213: 1335584488734665219
+    second: Hard-and-soft-'G'_8
+  - first:
+      213: -633683150804098484
+    second: Hard-and-soft-'G'_9
+  - first:
+      213: 2392905979181064185
+    second: Hard-and-soft-'G'_10
+  - first:
+      213: -7193212108971221465
+    second: Hard-and-soft-'G'_11
+  - first:
+      213: -397186858798093703
+    second: Hard-and-soft-'G'_12
+  - first:
+      213: -3778555372468385649
+    second: Hard-and-soft-'G'_13
+  - first:
+      213: -2119569776775326319
+    second: Hard-and-soft-'G'_14
+  - first:
+      213: 4649242658762836067
+    second: Hard-and-soft-'G'_15
+  - first:
+      213: -164827119888994502
+    second: Hard-and-soft-'G'_16
+  - first:
+      213: -7619168066703212569
+    second: Hard-and-soft-'G'_17
+  - first:
+      213: -3549165869721024793
+    second: Hard-and-soft-'G'_18
+  - first:
+      213: 6696960790649414747
+    second: Hard-and-soft-'G'_19
+  - first:
+      213: 6861514953362661361
+    second: Hard-and-soft-'G'_20
+  - first:
+      213: 8836466616533261299
+    second: Hard-and-soft-'G'_21
+  - first:
+      213: -7048807322246155755
+    second: Hard-and-soft-'G'_22
+  - first:
+      213: 1427267774462945083
+    second: Hard-and-soft-'G'_23
+  - first:
+      213: 2025413258793707978
+    second: Hard-and-soft-'G'_24
+  - first:
+      213: 7686051143397242777
+    second: Hard-and-soft-'G'_25
+  - first:
+      213: 2846751717701138882
+    second: Hard-and-soft-'G'_26
+  - first:
+      213: 1626309813255661185
+    second: Hard-and-soft-'G'_27
+  - first:
+      213: 6000445045962579827
+    second: Hard-and-soft-'G'_28
+  - first:
+      213: -7147309254572559959
+    second: Hard-and-soft-'G'_29
+  - first:
+      213: -5183076059442313648
+    second: Hard-and-soft-'G'_30
+  - first:
+      213: 6595551566712275129
+    second: Hard-and-soft-'G'_31
+  - first:
+      213: -2972237850627077120
+    second: Hard-and-soft-'G'_32
+  - first:
+      213: 5676704804047589023
+    second: Hard-and-soft-'G'_33
+  - first:
+      213: 972239898782095870
+    second: Hard-and-soft-'G'_34
+  - first:
+      213: -7642748515440096150
+    second: Hard-and-soft-'G'_35
+  - first:
+      213: 8372034628065866035
+    second: Hard-and-soft-'G'_36
+  - first:
+      213: 4168656922040992172
+    second: Hard-and-soft-'G'_37
+  - first:
+      213: -3222086872873493655
+    second: Hard-and-soft-'G'_38
+  - first:
+      213: 7009115289799524695
+    second: Hard-and-soft-'G'_39
+  - first:
+      213: 2279904991782907928
+    second: Hard-and-soft-'G'_40
+  - first:
+      213: 8091451123780479204
+    second: Hard-and-soft-'G'_41
+  - first:
+      213: 103884284397855933
+    second: Hard-and-soft-'G'_42
+  - first:
+      213: -1808370680538708993
+    second: Hard-and-soft-'G'_43
+  - first:
+      213: 3393198102349647564
+    second: Hard-and-soft-'G'_44
+  - first:
+      213: 5527538135059675015
+    second: Hard-and-soft-'G'_45
+  - first:
+      213: 368127179946774761
+    second: Hard-and-soft-'G'_46
+  - first:
+      213: 2287433054451411075
+    second: Hard-and-soft-'G'_47
+  - first:
+      213: 8461776729631715287
+    second: Hard-and-soft-'G'_48
+  - first:
+      213: -6856315996573050469
+    second: Hard-and-soft-'G'_49
+  - first:
+      213: -3125487731489940771
+    second: Hard-and-soft-'G'_50
+  - first:
+      213: 3438011408138803729
+    second: Hard-and-soft-'G'_51
+  - first:
+      213: 4829009240501483069
+    second: Hard-and-soft-'G'_52
+  - first:
+      213: -3858437851208284225
+    second: Hard-and-soft-'G'_53
+  - first:
+      213: 8019015395579464290
+    second: Hard-and-soft-'G'_54
+  - first:
+      213: 3477259143580717163
+    second: Hard-and-soft-'G'_55
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_0
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 1612
+        width: 412
+        height: 396
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf4ce7a259c9a0f0800000000000000
+      internalID: -1105130876700962893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_1
+      rect:
+        serializedVersion: 2
+        x: 1346
+        y: 1978
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702f6dcfd62998300800000000000000
+      internalID: 254895855014179335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_2
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 1974
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 488570435d7cf5620800000000000000
+      internalID: 2765148414743632004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_3
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1686
+        width: 392
+        height: 282
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 454dee77e85a133a0800000000000000
+      internalID: -6687381940352396204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_4
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 1950
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3442761a987d3230800000000000000
+      internalID: 3620182278672630846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_5
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 1956
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8c4636f635d1cf0800000000000000
+      internalID: -279975863953078037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_6
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 1942
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aac2022518783c90800000000000000
+      internalID: -7189864772936742234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_8
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 1935
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30a2d8a2403f88210800000000000000
+      internalID: 1335584488734665219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_9
+      rect:
+        serializedVersion: 2
+        x: 1274
+        y: 1919
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c42eb202884b437f0800000000000000
+      internalID: -633683150804098484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_11
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 1916
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e5bbab2b39c2c90800000000000000
+      internalID: -7193212108971221465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_12
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 1914
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ae2e308a8ec7af0800000000000000
+      internalID: -397186858798093703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_13
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 1893
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f88c0eb88efdf8bc0800000000000000
+      internalID: -3778555372468385649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_16
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 1868
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f6aa59b9a66bdf0800000000000000
+      internalID: -164827119888994502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_17
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 1876
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7efb72ce207434690800000000000000
+      internalID: -7619168066703212569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_19
+      rect:
+        serializedVersion: 2
+        x: 1357
+        y: 1864
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b54a0696b5260fc50800000000000000
+      internalID: 6696960790649414747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_20
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 1856
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ff56380f7ff83f50800000000000000
+      internalID: 6861514953362661361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_21
+      rect:
+        serializedVersion: 2
+        x: 1256
+        y: 1832
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fb1014f19f61aa70800000000000000
+      internalID: 8836466616533261299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_22
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 1828
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 512785b261b9d2e90800000000000000
+      internalID: -7048807322246155755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_23
+      rect:
+        serializedVersion: 2
+        x: 1307
+        y: 1823
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b37e9389a7caec310800000000000000
+      internalID: 1427267774462945083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_24
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 1825
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac9e3c5b0a6bb1c10800000000000000
+      internalID: 2025413258793707978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_26
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 1627
+        width: 375
+        height: 377
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c93f41ca91b18720800000000000000
+      internalID: 2846751717701138882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_27
+      rect:
+        serializedVersion: 2
+        x: 1391
+        y: 1808
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 186e5d99820d19610800000000000000
+      internalID: 1626309813255661185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_28
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 1812
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37f1ad24afcd54350800000000000000
+      internalID: 6000445045962579827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_29
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 1776
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a1375dd918afcc90800000000000000
+      internalID: -7147309254572559959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_32
+      rect:
+        serializedVersion: 2
+        x: 1461
+        y: 1754
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c07652c6d70c6d0800000000000000
+      internalID: -2972237850627077120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_33
+      rect:
+        serializedVersion: 2
+        x: 1476
+        y: 1749
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e820c51f4b7ce40800000000000000
+      internalID: 5676704804047589023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_34
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 1737
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef95e5b69071e7d00800000000000000
+      internalID: 972239898782095870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_35
+      rect:
+        serializedVersion: 2
+        x: 1525
+        y: 1740
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c8c8dd7b08fe590800000000000000
+      internalID: -7642748515440096150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_39
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1205
+        width: 378
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751824e5831654160800000000000000
+      internalID: 7009115289799524695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_40
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 1129
+        width: 479
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8103cd4b289d3af10800000000000000
+      internalID: 2279904991782907928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_41
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 1206
+        width: 384
+        height: 354
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e8ee5e3deb9a4070800000000000000
+      internalID: 8091451123780479204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_46
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 616
+        width: 464
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0d4e048b9db1500800000000000000
+      internalID: 368127179946774761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_47
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 694
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38820126e389ebf10800000000000000
+      internalID: 2287433054451411075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_48
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 636
+        width: 472
+        height: 294
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7df6d5a6a154e6570800000000000000
+      internalID: 8461776729631715287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_49
+      rect:
+        serializedVersion: 2
+        x: 1389
+        y: 636
+        width: 339
+        height: 388
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b995f6c6de879d0a0800000000000000
+      internalID: -6856315996573050469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_50
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 630
+        width: 30
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda53beb77900a4d0800000000000000
+      internalID: -3125487731489940771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_51
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 623
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11a9adb092546bf20800000000000000
+      internalID: 3438011408138803729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_52
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 614
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d367b2da156140340800000000000000
+      internalID: 4829009240501483069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_54
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 38
+        width: 165
+        height: 440
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a07e50404494f60800000000000000
+      internalID: 8019015395579464290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hard-and-soft-'G'_55
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 22
+        width: 407
+        height: 499
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b609b1d84c4b14030800000000000000
+      internalID: 3477259143580717163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
