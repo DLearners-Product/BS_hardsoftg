@@ -123,7 +123,6 @@ public class Main_Blended : MonoBehaviour
         HAS_VIDEO = new bool[MAX_SLIDES];
         HAS_WORKSHEET = new bool[MAX_SLIDES];*/
 
-
         PlayerPrefs.DeleteAll();
         AS_BGM.volume = 0.5f;
 
@@ -140,11 +139,10 @@ public class Main_Blended : MonoBehaviour
         B_pause = false;
         levelno = 0;
         THI_cloneLevels();
-
-
     }
     private void Start()
     {
+        Debug.Log("Main blended data : "+MainBlendedData.instance.slideData.Length);
         LS_WORDS = new List<string>();
        
         G_worksheet.transform.GetChild(0).gameObject.SetActive(false);
@@ -249,6 +247,8 @@ public class Main_Blended : MonoBehaviour
         }
 
     }
+
+#region BLENDED_SESSION
     //WordDB Grammer
     public void BUT_postGrammerToDB()
     {
@@ -787,11 +787,16 @@ public class Main_Blended : MonoBehaviour
         {
             Destroy(G_currenlevel);
         }
-        var currentLevel = Instantiate(GA_levelsIG[levelno]);
+
+        // var currentLevel = Instantiate(GA_levelsIG[levelno]);
+        MainBlendedData.instance.AssignData(levelno);
+
+        var currentLevel = Instantiate(MainBlendedData.instance.slideData[levelno].slideObject);
         currentLevel.transform.SetParent(GameObject.Find("Game_Panel").transform, false);
         currentLevel.transform.SetAsFirstSibling();
         G_currenlevel = currentLevel;
-
+        
+        CheckInCloneGameObject();
         //NEW IMMERSIVE READING
         if (currentLevel.GetComponent<Image>() != null)
         {
@@ -813,7 +818,6 @@ public class Main_Blended : MonoBehaviour
         // B_Reader = true;
         // NEW IMMERSIVE READING
         Invoke("FindImmersive", 0.5f);
-
     }
     public void FindImmersive()
     {
@@ -1008,4 +1012,23 @@ public class Main_Blended : MonoBehaviour
                 + ".json", rating);
         }
     }
+#endregion
+
+#region INTEGRATION
+    void CheckInCloneGameObject(){
+        foreach(var go in MainBlendedData.instance.slideData){
+            Debug.Log(go.slideObject.GetInstanceID()+" ---> "+go.slideObject.name);
+            Debug.Log(G_currenlevel.GetInstanceID()+" Current level : "+G_currenlevel.name);
+            Debug.Log(go.slideObject == G_currenlevel);
+            Debug.Log(GameObject.ReferenceEquals(go.slideObject, G_currenlevel));
+            // if(go.slideObject.name == G_currenlevel.name){
+            //     Debug.Log("---> "+go.slideObject.GetInstanceID());
+            //     Debug.Log("Current level : "+G_currenlevel.GetInstanceID());
+            // }
+            // foreach(var tc in go.textComponents){
+            //     tc.
+            // }
+        }
+    }
+#endregion
 }
