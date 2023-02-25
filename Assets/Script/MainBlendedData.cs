@@ -6,9 +6,12 @@ using UnityEngine.UI;
 [ExecuteInEditMode]
 public class MainBlendedData : MonoBehaviour
 {
-    public SlideData[] slideData;
+    public List<SlideData> slideData;
     List<int> slideDataCounts;
     public static MainBlendedData instance;
+    List<GameObject> textObjects = new List<GameObject>();
+    List<SlideData> oldSlideData = new List<SlideData>();
+    int currentSlideIndex = 0;
 
     private void Awake() {
         if(instance == null){
@@ -18,28 +21,52 @@ public class MainBlendedData : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Start method called");
         slideDataCounts = new List<int>();
+        for(int i=0; i<slideData.Count; i++){
+            oldSlideData.Add(slideData[i]);
+        }
     }
 
     void Update()
     {
-        PopulateData();
+        UpdateInspector();
     }
 
-    void PopulateData(){
-        Debug.Log("Came here");
-        Debug.Log((Main_Blended.OBJ_main_blended == null));
-        for(int i=0; i<slideData.Length; i++){
-            if(slideData[i].slideObject != null){
-                // IterPrefabObject(slideData[i].slideObject);
-                List<GameObject> textObjects = new List<GameObject>();
-                textObjects = GetAllTextComponent(textObjects, slideData[i].slideObject);
-                slideData[i].slideName = slideData[i].slideObject.name;
-                slideData[i].textComponents = new List<TextComponentData>();
-                for(int j=0; j<textObjects.Count; j++){
-                    slideData[i].textComponents.Add(new TextComponentData("G_"+j.ToString(), textObjects[j]));
+    public void UpdateInspector(){
+        for(; currentSlideIndex < slideData.Count; currentSlideIndex++){
+            bool isNewActivity = ((oldSlideData.Count - 1) < currentSlideIndex && slideData[currentSlideIndex].slideObject != null);
+            bool isOldActivityChanged = ((oldSlideData.Count) > currentSlideIndex && oldSlideData[currentSlideIndex].slideObject != slideData[currentSlideIndex].slideObject);
+
+            if(isNewActivity || isOldActivityChanged){
+                if(isNewActivity){
+                    oldSlideData.Add(slideData[currentSlideIndex]);
                 }
+                PopulateTextField();
+                UpdateOldSlideData();
             }
+        }
+        currentSlideIndex = 0;
+    }
+
+    void PopulateTextField(){
+        if(slideData[currentSlideIndex].slideObject != null){
+            slideData[currentSlideIndex].textComponents = new List<TextComponentData>();
+            
+            GetAllTextComponent(slideData[currentSlideIndex].slideObject);
+            
+            slideData[currentSlideIndex].slideName = slideData[currentSlideIndex].slideObject.name;
+        }
+    }
+
+    void UpdateOldSlideData(){
+        oldSlideData[currentSlideIndex].slideName = slideData[currentSlideIndex].slideName;
+        oldSlideData[currentSlideIndex].slideObject = slideData[currentSlideIndex].slideObject;
+
+        oldSlideData[currentSlideIndex].textComponents.Clear();
+
+        for(int i=0; i<slideData[currentSlideIndex].textComponents.Count; i++){
+            oldSlideData[currentSlideIndex].textComponents.Add(slideData[currentSlideIndex].textComponents[i]);
         }
     }
 
@@ -49,16 +76,17 @@ public class MainBlendedData : MonoBehaviour
         // }
     }
 
-    List<GameObject> GetAllTextComponent(List<GameObject> listObject, GameObject rootObject){
+    void GetAllTextComponent(GameObject rootObject){
         if(rootObject.GetComponent<Text>() != null){
-            listObject.Add(rootObject);
+            slideData[currentSlideIndex].textComponents.Add(
+                new TextComponentData("G_"+(slideData[currentSlideIndex].textComponents.Count + 1).ToString(), rootObject)
+            );
         }
-        for(int i=0; i<rootObject.transform.childCount; i++){
-            if(rootObject.transform.GetChild(i).gameObject.GetComponent<Text>() != null){
-                listObject.Add(rootObject.transform.GetChild(i).gameObject);
+        if(rootObject.transform.childCount > 0){
+            for(int j=0; j<rootObject.transform.childCount; j++){
+                GetAllTextComponent(rootObject.transform.GetChild(j).gameObject);
             }
         }
-        return listObject;
     }
 
     void IterPrefabObject(GameObject prefab){
@@ -67,13 +95,5 @@ public class MainBlendedData : MonoBehaviour
         }
     }
 
-    private void OnValidate() {
-        // for(int i=0; i<slideData.Length; i++){
-        //     if(slideData[i].textComponents.Count < slideDataCounts[i]){
-        //         for(int j=0; j<slideData[i].textComponents.Count; j++){
-        //             slideData[i].textComponents[j].componentID = "B_"+slideData[i].textComponents.Count.ToString();
-        //         }
-        //     }
-        // }
-    }
+    private void OnValidate() {}
 }

@@ -142,7 +142,7 @@ public class Main_Blended : MonoBehaviour
     }
     private void Start()
     {
-        Debug.Log("Main blended data : "+MainBlendedData.instance.slideData.Length);
+        Debug.Log("Main blended data : "+MainBlendedData.instance.slideData.Count);
         LS_WORDS = new List<string>();
        
         G_worksheet.transform.GetChild(0).gameObject.SetActive(false);

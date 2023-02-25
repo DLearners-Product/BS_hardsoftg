@@ -7,5 +7,8 @@ public class Main_BlendedEditor : Editor {
 
     public override void OnInspectorGUI() {
         base.OnInspectorGUI();
+        if(GUILayout.Button("Click")){
+            MainBlendedData.instance.UpdateInspector();
+        }
     }
 }
