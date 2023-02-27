@@ -177,6 +177,23 @@ public class Main_Blended : MonoBehaviour
       //      GA_grammarPostButtons[i].GetComponent<Button>().interactable = false;
       //  }
     }
+
+    void CallJSFunction(){
+        List<string> dictVal = new List<string>();
+        for(int i=0; i<5; i++){
+            // dictVal[i] = new CommonScript(i, "value "+i);
+            dictVal.Add(JsonUtility.ToJson(new CommonScript(i, "value "+i)));
+        }
+        string strDictVal = string.Join(", ", dictVal);
+        // string strDictVal = JsonUtility.ToJson(dictVal);
+        Debug.Log(dictVal[0]); 
+        Debug.Log("Str Dict Val : "+strDictVal);
+        int[] intVal = new int[]{2,3};
+        // Application.ExternalCall("demo_func", intVal);
+        // Application.ExternalCall("demo_func",);
+    }
+
+
     private void Update()
     {
         if (G_ruler.activeInHierarchy)

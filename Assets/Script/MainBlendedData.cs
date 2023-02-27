@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 [ExecuteInEditMode]
 public class MainBlendedData : MonoBehaviour
@@ -9,11 +10,14 @@ public class MainBlendedData : MonoBehaviour
     public List<SlideData> slideData;
     List<int> slideDataCounts;
     public static MainBlendedData instance;
-    List<GameObject> textObjects = new List<GameObject>();
-    List<SlideData> oldSlideData = new List<SlideData>();
+    List<GameObject> textObjects;
+    List<SlideData> oldSlideData;
     int currentSlideIndex = 0;
 
     private void Awake() {
+        textObjects = new List<GameObject>();
+        oldSlideData = new List<SlideData>();
+
         if(instance == null){
             instance = this;
         }
@@ -30,7 +34,13 @@ public class MainBlendedData : MonoBehaviour
 
     void Update()
     {
-        UpdateInspector();
+        if(Application.isEditor){
+            Debug.Log($"Playing in editor mode");
+            UpdateInspector();
+        }else{
+            Debug.Log("Not playing in editor mode");
+        }
+
     }
 
     public void UpdateInspector(){
@@ -77,7 +87,7 @@ public class MainBlendedData : MonoBehaviour
     }
 
     void GetAllTextComponent(GameObject rootObject){
-        if(rootObject.GetComponent<Text>() != null){
+        if(rootObject.GetComponent<Text>() != null || rootObject.GetComponent<TMP_Text>() != null){
             slideData[currentSlideIndex].textComponents.Add(
                 new TextComponentData("G_"+(slideData[currentSlideIndex].textComponents.Count + 1).ToString(), rootObject)
             );

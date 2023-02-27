@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class CommonScript : MonoBehaviour
+[Serializable]
+public class CommonScript
 {
+    public int id;
+    public string strVal;
+
+    public CommonScript(int id, string strVal){
+        this.id = id;
+        this.strVal = strVal;
+    }
 }
 
 [Serializable]

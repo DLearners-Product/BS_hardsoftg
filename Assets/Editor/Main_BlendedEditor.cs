@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Main_Blended)), CanEditMultipleObjects]
+[CustomEditor(typeof(MainBlendedData)), CanEditMultipleObjects]
 public class Main_BlendedEditor : Editor {
     // private ReorderableList list;
 
