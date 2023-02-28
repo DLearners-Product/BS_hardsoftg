@@ -176,12 +176,16 @@ public class Main_Blended : MonoBehaviour
       //  {
       //      GA_grammarPostButtons[i].GetComponent<Button>().interactable = false;
       //  }
+      GetBlendedData();
+    }
+
+    public void StartJSON(){
+        Debug.Log("Called from Unity isntance");
     }
 
     void CallJSFunction(){
         List<string> dictVal = new List<string>();
         for(int i=0; i<5; i++){
-            // dictVal[i] = new CommonScript(i, "value "+i);
             dictVal.Add(JsonUtility.ToJson(new CommonScript(i, "value "+i)));
         }
         string strDictVal = string.Join(", ", dictVal);
@@ -191,6 +195,29 @@ public class Main_Blended : MonoBehaviour
         int[] intVal = new int[]{2,3};
         // Application.ExternalCall("demo_func", intVal);
         // Application.ExternalCall("demo_func",);
+    }
+
+    public void GetBlendedData(){
+        string blendedData = "[";
+        List<SlideDataContainer> slideDataContainer = MainBlendedData.instance.slideData;
+
+        for(int i = 0; i < slideDataContainer.Count; i++){
+            SlideData slideData = new SlideData();
+            slideData.slideName = slideDataContainer[i].slideName;
+            List<string> slideTexts = new List<string>();
+            for(int j=0; j<slideDataContainer[i].textComponents.Count; j++){
+                slideTexts.Add(JsonUtility.ToJson(
+                    new TextComponent(
+                        slideDataContainer[i].textComponents[j].componentID, 
+                        (slideDataContainer[i].textComponents[j].component.GetComponent<Text>() != null) ? slideDataContainer[i].textComponents[j].component.GetComponent<Text>().text : slideDataContainer[i].textComponents[j].component.GetComponent<TMP_Text>().text
+                    )
+                ));
+            }
+            slideData.slideTexts = "["+string.Join(", ", slideTexts)+"]";
+            blendedData += JsonUtility.ToJson(slideData)+", ";
+        }
+        blendedData += "]";
+        Debug.Log("Blended Data : "+blendedData);
     }
 
 

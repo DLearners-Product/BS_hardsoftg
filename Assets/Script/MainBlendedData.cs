@@ -7,16 +7,16 @@ using TMPro;
 [ExecuteInEditMode]
 public class MainBlendedData : MonoBehaviour
 {
-    public List<SlideData> slideData;
+    public List<SlideDataContainer> slideData;
     List<int> slideDataCounts;
     public static MainBlendedData instance;
     List<GameObject> textObjects;
-    List<SlideData> oldSlideData;
+    List<SlideDataContainer> oldSlideData;
     int currentSlideIndex = 0;
 
     private void Awake() {
         textObjects = new List<GameObject>();
-        oldSlideData = new List<SlideData>();
+        oldSlideData = new List<SlideDataContainer>();
 
         if(instance == null){
             instance = this;
@@ -35,12 +35,8 @@ public class MainBlendedData : MonoBehaviour
     void Update()
     {
         if(Application.isEditor){
-            Debug.Log($"Playing in editor mode");
             UpdateInspector();
-        }else{
-            Debug.Log("Not playing in editor mode");
         }
-
     }
 
     public void UpdateInspector(){
