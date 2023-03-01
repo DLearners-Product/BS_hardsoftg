@@ -176,7 +176,6 @@ public class Main_Blended : MonoBehaviour
       //  {
       //      GA_grammarPostButtons[i].GetComponent<Button>().interactable = false;
       //  }
-      GetBlendedData();
     }
 
     public void StartJSON(){
@@ -197,7 +196,13 @@ public class Main_Blended : MonoBehaviour
         // Application.ExternalCall("demo_func",);
     }
 
+    public void SetBlendedData(string blendedData){
+        Debug.Log("From Unity ");
+        Debug.Log(blendedData);
+    }
+
     public void GetBlendedData(){
+        Debug.Log("Came to GetBlendedData");
         string blendedData = "[";
         List<SlideDataContainer> slideDataContainer = MainBlendedData.instance.slideData;
 
@@ -214,10 +219,17 @@ public class Main_Blended : MonoBehaviour
                 ));
             }
             slideData.slideTexts = "["+string.Join(", ", slideTexts)+"]";
-            blendedData += JsonUtility.ToJson(slideData)+", ";
+
+            // for JSON formating
+            if( i > 0){
+                blendedData += ", ";
+            }
+            blendedData += JsonUtility.ToJson(slideData);
         }
         blendedData += "]";
-        Debug.Log("Blended Data : "+blendedData);
+
+        Application.ExternalCall("send_blended_data", blendedData);
+        // Debug.Log("Blended Data : "+blendedData);
     }
 
 
