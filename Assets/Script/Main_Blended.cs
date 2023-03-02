@@ -199,6 +199,25 @@ public class Main_Blended : MonoBehaviour
     public void SetBlendedData(string blendedData){
         Debug.Log("From Unity ");
         Debug.Log(blendedData);
+        JSONNode blendedParsedData = JSON.Parse(blendedData);
+        for(int i=0; i<blendedParsedData.Count; i++){
+            List<TextComponentData> slideTextComponents = MainBlendedData.instance.slideData[Int32.Parse(blendedParsedData[i]["slide_flow_id"]) - 1].textComponents;
+            
+            Debug.Log(MainBlendedData.instance.slideData[Int32.Parse(blendedParsedData[i]["slide_flow_id"])].slideName, MainBlendedData.instance.slideData[Int32.Parse(blendedParsedData[i]["slide_flow_id"])].slideObject);
+
+            foreach(var slideTextComponent in slideTextComponents){
+                Debug.Log(slideTextComponent.componentID + " ----- " + blendedParsedData[i]["component_id"]);
+                if(slideTextComponent.componentID == blendedParsedData[i]["component_id"]){
+                    Debug.Log("Came In chnage value to : "+blendedParsedData[i]["paragraph"]);
+                    if(slideTextComponent.component.GetComponent<Text>() != null){
+                        slideTextComponent.component.GetComponent<Text>().text = blendedParsedData[i]["paragraph"];
+                    }else {
+                        slideTextComponent.component.GetComponent<TMP_Text>().text = blendedParsedData[i]["paragraph"];
+                    }
+                }
+            }
+        }
+        THI_cloneLevels();
     }
 
     public void GetBlendedData(){
@@ -1072,19 +1091,19 @@ public class Main_Blended : MonoBehaviour
 
 #region INTEGRATION
     void CheckInCloneGameObject(){
-        foreach(var go in MainBlendedData.instance.slideData){
-            Debug.Log(go.slideObject.GetInstanceID()+" ---> "+go.slideObject.name);
-            Debug.Log(G_currenlevel.GetInstanceID()+" Current level : "+G_currenlevel.name);
-            Debug.Log(go.slideObject == G_currenlevel);
-            Debug.Log(GameObject.ReferenceEquals(go.slideObject, G_currenlevel));
-            // if(go.slideObject.name == G_currenlevel.name){
-            //     Debug.Log("---> "+go.slideObject.GetInstanceID());
-            //     Debug.Log("Current level : "+G_currenlevel.GetInstanceID());
-            // }
-            // foreach(var tc in go.textComponents){
-            //     tc.
-            // }
-        }
+        // foreach(var go in MainBlendedData.instance.slideData){
+        //     Debug.Log(go.slideObject.GetInstanceID()+" ---> "+go.slideObject.name);
+        //     Debug.Log(G_currenlevel.GetInstanceID()+" Current level : "+G_currenlevel.name);
+        //     Debug.Log(go.slideObject == G_currenlevel);
+        //     Debug.Log(GameObject.ReferenceEquals(go.slideObject, G_currenlevel));
+        //     // if(go.slideObject.name == G_currenlevel.name){
+        //     //     Debug.Log("---> "+go.slideObject.GetInstanceID());
+        //     //     Debug.Log("Current level : "+G_currenlevel.GetInstanceID());
+        //     // }
+        //     // foreach(var tc in go.textComponents){
+        //     //     tc.
+        //     // }
+        // }
     }
 #endregion
 }

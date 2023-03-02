@@ -34,7 +34,7 @@ public class MainBlendedData : MonoBehaviour
 
     void Update()
     {
-        if(Application.isEditor){
+        if(Application.isEditor && !Application.isPlaying){
             UpdateInspector();
         }
     }
@@ -78,7 +78,7 @@ public class MainBlendedData : MonoBehaviour
 
     public void AssignData(int index){
         // for(int i=0; i<slideData.Length; i++){
-            slideData[index].textComponents[0].component.GetComponent<Text>().text="Text changed";
+            // slideData[index].textComponents[0].component.GetComponent<Text>().text="Text changed";
         // }
     }
 
