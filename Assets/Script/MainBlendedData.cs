@@ -76,11 +76,11 @@ public class MainBlendedData : MonoBehaviour
         }
     }
 
-    public void AssignData(int index){
-        // for(int i=0; i<slideData.Length; i++){
-            // slideData[index].textComponents[0].component.GetComponent<Text>().text="Text changed";
-        // }
-    }
+    // public void AssignData(int index){
+    //     for(int i=0; i<slideData.Length; i++){
+    //         slideData[index].textComponents[0].component.GetComponent<Text>().text="Text changed";
+    //     }
+    // }
 
     void GetAllTextComponent(GameObject rootObject){
         if(rootObject.GetComponent<Text>() != null || rootObject.GetComponent<TMP_Text>() != null){

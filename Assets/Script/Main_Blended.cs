@@ -176,6 +176,8 @@ public class Main_Blended : MonoBehaviour
       //  {
       //      GA_grammarPostButtons[i].GetComponent<Button>().interactable = false;
       //  }
+       string data = "[{\"slide_flow_id\":\"1\",\"component_id\":\"G_1\",\"paragraph\":\"Text changed\"},{\"slide_flow_id\":\"5\",\"component_id\":\"G_1\",\"paragraph\":\"The <color=blue>goat<\\/color> was grazing.\"},{\"slide_flow_id\":\"5\",\"component_id\":\"G_2\",\"paragraph\":\"The <color=blue>gym<\\/color> was closed.\"},{\"slide_flow_id\":\"5\",\"component_id\":\"G_3\",\"paragraph\":\"Worksheet time\"},{\"slide_flow_id\":\"5\",\"component_id\":\"G_3\",\"paragraph\":\"Worksheet time\"},{\"slide_flow_id\":\"5\",\"component_id\":\"G_2\",\"paragraph\":\"The <color=blue>gym<\\/color> was closed.\"},{\"slide_flow_id\":\"5\",\"component_id\":\"G_1\",\"paragraph\":\"The <color=blue>goat<\\/color> was grazing.\"},{\"slide_flow_id\":\"1\",\"component_id\":\"G_1\",\"paragraph\":\"Text changed\"}]";
+        SetBlendedData(data);
     }
 
     public void StartJSON(){
@@ -199,7 +201,15 @@ public class Main_Blended : MonoBehaviour
     public void SetBlendedData(string blendedData){
         Debug.Log("From Unity ");
         Debug.Log(blendedData);
+        Debug.Log("------------------------------------------------------------");
+        // JSONParser parser = new JSONParser();
+        blendedData = blendedData.Replace("\"[", "[").Replace("]\"", "]").Replace("\\", "");
         JSONNode blendedParsedData = JSON.Parse(blendedData);
+
+        Debug.Log(blendedParsedData.GetType());
+        Debug.Log(blendedParsedData[0]);
+        Debug.Log(blendedParsedData.Count);
+
         for(int i=0; i<blendedParsedData.Count; i++){
             List<TextComponentData> slideTextComponents = MainBlendedData.instance.slideData[Int32.Parse(blendedParsedData[i]["slide_flow_id"]) - 1].textComponents;
             
@@ -217,6 +227,7 @@ public class Main_Blended : MonoBehaviour
                 }
             }
         }
+
         THI_cloneLevels();
     }
 
@@ -864,7 +875,7 @@ public class Main_Blended : MonoBehaviour
         }
 
         // var currentLevel = Instantiate(GA_levelsIG[levelno]);
-        MainBlendedData.instance.AssignData(levelno);
+        // MainBlendedData.instance.AssignData(levelno);
 
         var currentLevel = Instantiate(MainBlendedData.instance.slideData[levelno].slideObject);
         currentLevel.transform.SetParent(GameObject.Find("Game_Panel").transform, false);
