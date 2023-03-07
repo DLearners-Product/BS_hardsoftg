@@ -423,6 +423,11 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1198874894027564842, guid: 4565e84c14b4e0144a17d0fe94d59f70,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3725847341252804952, guid: 4565e84c14b4e0144a17d0fe94d59f70,
         type: 3}
       propertyPath: m_Name
@@ -532,6 +537,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725847342239886117, guid: 4565e84c14b4e0144a17d0fe94d59f70,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3725847342239886139, guid: 4565e84c14b4e0144a17d0fe94d59f70,
         type: 3}
@@ -3575,6 +3585,7 @@ MonoBehaviour:
   STR_Passage: 
   STR_API: https://dlearners.in/source/get_word_data.php
   B_Reader: 0
+  STRA_ScoreVal: []
 --- !u!82 &2067067675
 AudioSource:
   m_ObjectHideFlags: 0

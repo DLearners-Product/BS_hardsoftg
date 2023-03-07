@@ -115,9 +115,11 @@ public class Main_Blended : MonoBehaviour
     public string STR_Passage;
     public string STR_API;
     public bool B_Reader;
+    public string[] STRA_ScoreVal;
 
     void Awake()
     {
+        STRA_ScoreVal = new string[GA_levelsIG.Length];
         /*SLIDE_NAMES = new string[MAX_SLIDES];
         TEACHER_INSTRUCTION = new string[MAX_SLIDES];
         HAS_VIDEO = new bool[MAX_SLIDES];
@@ -151,6 +153,7 @@ public class Main_Blended : MonoBehaviour
         IF_typing.gameObject.SetActive(false);
         I_drawcount = 0;
         I_boardcount = 0;
+        ScoreManager.instance.InitializeLessonActivityData(GA_levelsIG.Length);
 
 
         Application.ExternalEval("OnAppReady()");
@@ -177,7 +180,7 @@ public class Main_Blended : MonoBehaviour
       //      GA_grammarPostButtons[i].GetComponent<Button>().interactable = false;
       //  }
        string data = "[{\"slide_flow_id\":\"1\",\"component_id\":\"G_1\",\"paragraph\":\"Text changed\"},{\"slide_flow_id\":\"5\",\"component_id\":\"G_1\",\"paragraph\":\"The <color=blue>goat<\\/color> was grazing.\"},{\"slide_flow_id\":\"5\",\"component_id\":\"G_2\",\"paragraph\":\"The <color=blue>gym<\\/color> was closed.\"},{\"slide_flow_id\":\"5\",\"component_id\":\"G_3\",\"paragraph\":\"Worksheet time\"},{\"slide_flow_id\":\"5\",\"component_id\":\"G_3\",\"paragraph\":\"Worksheet time\"},{\"slide_flow_id\":\"5\",\"component_id\":\"G_2\",\"paragraph\":\"The <color=blue>gym<\\/color> was closed.\"},{\"slide_flow_id\":\"5\",\"component_id\":\"G_1\",\"paragraph\":\"The <color=blue>goat<\\/color> was grazing.\"},{\"slide_flow_id\":\"1\",\"component_id\":\"G_1\",\"paragraph\":\"Text changed\"}]";
-        SetBlendedData(data);
+        // SetBlendedData(data);
     }
 
     public void StartJSON(){

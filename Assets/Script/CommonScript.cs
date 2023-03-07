@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using SimpleJSON;
 
 [Serializable]
 public class CommonScript
@@ -47,4 +48,28 @@ public class TextComponent{
         this.key = id;
         this.value = value;
     }
+}
+
+[Serializable]
+public class SlideActivityData{
+    public int questionNo;
+    public int tries;
+    public int failures;
+    public int score;
+
+    public SlideActivityData(int qNo){
+        this.questionNo = qNo;
+        this.tries = 0;
+        this.failures = 0;
+        this.score = 0;
+    }
+
+    public string getParsedJsonData(){
+        return JsonUtility.ToJson(this);
+    }
+}
+
+[Serializable]
+public class BlendedSlideActivityData{
+    public SlideActivityData[] slideActivities;
 }
