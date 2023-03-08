@@ -10,7 +10,6 @@ public class clapsnap : MonoBehaviour
     public AudioClip[] AC_Clips;
     public GameObject G_final;
     public GameObject G_Clap, G_Snap;
-    // [SerializeField] GameActivityData[] GAA_activityData;
     [SerializeField] Text T_questionCount;
     string activityData;
 
@@ -22,8 +21,6 @@ public class clapsnap : MonoBehaviour
         I_Qcount = 0;
 
         ScoreManager.instance.InstantiateScore(AC_Clips.Length);
-        // GAA_activityData = new GameActivityData[AC_Clips.Length];
-        ScoreManager.instance.THI_InitialiseGameActivity(I_Qcount);
 
         T_questionCount.text = (I_Qcount + 1).ToString()+" / "+AC_Clips.Length.ToString();
     }
@@ -40,8 +37,6 @@ public class clapsnap : MonoBehaviour
         {
             I_Qcount++;
 
-            ScoreManager.instance.THI_InitialiseGameActivity(I_Qcount);
-
             T_questionCount.text = (I_Qcount + 1).ToString()+" / "+AC_Clips.Length.ToString();
         }
         else
@@ -56,8 +51,6 @@ public class clapsnap : MonoBehaviour
         if (I_Qcount > 0)
         {
             I_Qcount--;
-
-            ScoreManager.instance.THI_InitialiseGameActivity(I_Qcount);
 
             T_questionCount.text = (I_Qcount + 1).ToString()+" / "+AC_Clips.Length.ToString();
         }
@@ -74,11 +67,9 @@ public class clapsnap : MonoBehaviour
     }
     public void BUT_Clap()
     {
-        // GAA_activityData[I_Qcount].tries++;
         if (I_Qcount == 1 || I_Qcount == 2 || I_Qcount == 3 || I_Qcount == 5 || I_Qcount == 11 || I_Qcount == 12)
         {
             ScoreManager.instance.RightAnswer(I_Qcount);
-            // GAA_activityData[I_Qcount].score++;
             G_Clap.SetActive(true);
             Invoke("Offeffect", 2f);
             AS_Crt.Play();
@@ -86,18 +77,15 @@ public class clapsnap : MonoBehaviour
         else
         {
             ScoreManager.instance.WrongAnswer(I_Qcount);
-            // GAA_activityData[I_Qcount].failures++;
             AS_Wrg.Play();
         }
     }
 
     public void BUT_Snap()
     {
-        // GAA_activityData[I_Qcount].tries++;
         if (I_Qcount == 0 || I_Qcount == 4 || I_Qcount == 6 || I_Qcount == 7 || I_Qcount == 8 || I_Qcount == 9 || I_Qcount == 10 || I_Qcount == 13)
         {
             ScoreManager.instance.RightAnswer(I_Qcount);
-            // GAA_activityData[I_Qcount].score++;
             G_Snap.SetActive(true);
             Invoke("Offeffect", 2f);
             AS_Crt.Play();
@@ -105,7 +93,6 @@ public class clapsnap : MonoBehaviour
         else
         {
             ScoreManager.instance.WrongAnswer(I_Qcount);
-            // GAA_activityData[I_Qcount].failures++;
             AS_Wrg.Play();
         }
     }

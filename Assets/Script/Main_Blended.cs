@@ -16,9 +16,14 @@ using System.Globalization;
 using FrostweepGames.Plugins.Core;
 using UnityEngine.Networking;
 using SimpleJSON;
+using System.Runtime.InteropServices;
 
 public class Main_Blended : MonoBehaviour
 {
+
+    [DllImport("__Internal")]
+    private static extern void SendBlendedData();
+
     public GameObject[] GA_levelsIG;
     public int levelno;
     //public int[] IA_videoSlides;
@@ -142,6 +147,7 @@ public class Main_Blended : MonoBehaviour
         levelno = 0;
         THI_cloneLevels();
     }
+
     private void Start()
     {
         Debug.Log("Main blended data : "+MainBlendedData.instance.slideData.Count);
@@ -153,6 +159,7 @@ public class Main_Blended : MonoBehaviour
         IF_typing.gameObject.SetActive(false);
         I_drawcount = 0;
         I_boardcount = 0;
+        
         ScoreManager.instance.InitializeLessonActivityData(GA_levelsIG.Length);
 
 

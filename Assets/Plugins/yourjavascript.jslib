@@ -11,4 +11,8 @@ mergeInto(LibraryManager.library, {
 	localStorage.setItem('gameName', myGameName);
   },
 
+  SendBlendedData: (slide_id, blended_activity_data) => {
+    send_data()
+  }
+
 });

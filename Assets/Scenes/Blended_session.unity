@@ -1877,6 +1877,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1009766229}
     m_Modifications:
+    - target: {fileID: 2410317689120927660, guid: 5d32db2b0c3400a478e7a10c8ad83c76,
+        type: 3}
+      propertyPath: questionNo
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575935938611480895, guid: 5d32db2b0c3400a478e7a10c8ad83c76,
+        type: 3}
+      propertyPath: questionNo
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575935938856002801, guid: 5d32db2b0c3400a478e7a10c8ad83c76,
+        type: 3}
+      propertyPath: questionNo
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575935939240595190, guid: 5d32db2b0c3400a478e7a10c8ad83c76,
+        type: 3}
+      propertyPath: questionNo
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575935939389257289, guid: 5d32db2b0c3400a478e7a10c8ad83c76,
+        type: 3}
+      propertyPath: questionNo
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2575935939427647880, guid: 5d32db2b0c3400a478e7a10c8ad83c76,
         type: 3}
       propertyPath: m_Name
@@ -1991,6 +2016,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633536588702408733, guid: 5d32db2b0c3400a478e7a10c8ad83c76,
+        type: 3}
+      propertyPath: questionNo
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738234979659226507, guid: 5d32db2b0c3400a478e7a10c8ad83c76,
+        type: 3}
+      propertyPath: questionNo
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676053947892115652, guid: 5d32db2b0c3400a478e7a10c8ad83c76,
+        type: 3}
+      propertyPath: questionNo
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086659096159438304, guid: 5d32db2b0c3400a478e7a10c8ad83c76,
+        type: 3}
+      propertyPath: questionNo
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379013996396748206, guid: 5d32db2b0c3400a478e7a10c8ad83c76,
+        type: 3}
+      propertyPath: questionNo
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589817794695379948, guid: 5d32db2b0c3400a478e7a10c8ad83c76,
+        type: 3}
+      propertyPath: questionNo
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8526026528662558081, guid: 5d32db2b0c3400a478e7a10c8ad83c76,
+        type: 3}
+      propertyPath: questionNo
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d32db2b0c3400a478e7a10c8ad83c76, type: 3}
@@ -2306,6 +2366,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1981032600}
+  - {fileID: 1963233844}
   m_Father: {fileID: 2067067671}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3206,6 +3267,55 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1898157518}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1963233843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1963233844}
+  - component: {fileID: 1963233845}
+  m_Layer: 5
+  m_Name: BlendedScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1963233844
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963233843}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1626740351}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1963233845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963233843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a3cd735c61645c79ffd9943a9f816d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lessonGameActivityDatas: []
 --- !u!1 &1981032599
 GameObject:
   m_ObjectHideFlags: 0
@@ -3586,6 +3696,7 @@ MonoBehaviour:
   STR_API: https://dlearners.in/source/get_word_data.php
   B_Reader: 0
   STRA_ScoreVal: []
+  currentQuestion: 0
 --- !u!82 &2067067675
 AudioSource:
   m_ObjectHideFlags: 0

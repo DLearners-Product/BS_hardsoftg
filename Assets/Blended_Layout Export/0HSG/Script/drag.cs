@@ -8,6 +8,7 @@ public class drag : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     Vector2 mousePos;
     public Vector2 initalPos;
+    public int questionNo;
 
     bool isdrag;
     GameObject otherGameObject,dummy;
@@ -21,6 +22,8 @@ public class drag : MonoBehaviour, IDragHandler, IEndDragHandler
 
     private void Start()
     {
+        ScoreManager.instance.InstantiateScore(12);
+
         //initalPos = this.GetComponent<RectTransform>().position;
         initalPos = this.transform.position;
     }
@@ -44,6 +47,7 @@ public class drag : MonoBehaviour, IDragHandler, IEndDragHandler
             {
                 // otherGameObject.GetComponent<Image>().enabled = true;
                 // otherGameObject.transform.GetChild(0).GetComponent<Text>().text = this.transform.GetChild(0).GetComponent<Text>().text;
+                ScoreManager.instance.RightAnswer(questionNo - 1);
                 this.gameObject.SetActive(false);
                 dummy.transform.GetChild(1).GetComponent<Image>().enabled = true;
                 dragmain.OBJ_dragmain.THI_correct();
@@ -51,6 +55,7 @@ public class drag : MonoBehaviour, IDragHandler, IEndDragHandler
             }
             else
             {
+                ScoreManager.instance.WrongAnswer(questionNo - 1);
                // dummy = otherGameObject;
                 StartCoroutine(wrong());
                 dragmain.OBJ_dragmain.THI_wrg();
