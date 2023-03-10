@@ -7,7 +7,7 @@ using TMPro;
 [ExecuteInEditMode]
 public class MainBlendedData : MonoBehaviour
 {
-    public List<SlideDataContainer> slideData;
+    public List<SlideDataContainer> slideDatas;
     List<int> slideDataCounts;
     public static MainBlendedData instance;
     List<GameObject> textObjects;
@@ -25,10 +25,10 @@ public class MainBlendedData : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Start method called");
+        Debug.Log($"start method called");
         slideDataCounts = new List<int>();
-        for(int i=0; i<slideData.Count; i++){
-            oldSlideData.Add(slideData[i]);
+        for(int i=0; i<slideDatas.Count; i++){
+            oldSlideData.Add(slideDatas[i]);
         }
     }
 
@@ -39,40 +39,44 @@ public class MainBlendedData : MonoBehaviour
         }
     }
 
-    public void UpdateInspector(){
-        for(; currentSlideIndex < slideData.Count; currentSlideIndex++){
-            bool isNewActivity = ((oldSlideData.Count - 1) < currentSlideIndex && slideData[currentSlideIndex].slideObject != null);
-            bool isOldActivityChanged = ((oldSlideData.Count) > currentSlideIndex && oldSlideData[currentSlideIndex].slideObject != slideData[currentSlideIndex].slideObject);
+    public void UpdateInspector(bool buttonClicked=false){
+        Debug.Log($"Updating inspector");
+        for(; currentSlideIndex < slideDatas.Count; currentSlideIndex++){
+            bool isNewActivity = ((oldSlideData.Count - 1) < currentSlideIndex && slideDatas[currentSlideIndex].slideObject != null);
+            bool isOldActivityChanged = ((oldSlideData.Count) > currentSlideIndex && oldSlideData[currentSlideIndex].slideObject != slideDatas[currentSlideIndex].slideObject);
 
-            if(isNewActivity || isOldActivityChanged){
+            if(isNewActivity || isOldActivityChanged || buttonClicked){
                 if(isNewActivity){
-                    oldSlideData.Add(slideData[currentSlideIndex]);
+                    oldSlideData.Add(slideDatas[currentSlideIndex]);
                 }
                 PopulateTextField();
                 UpdateOldSlideData();
             }
         }
+        buttonClicked = false;
         currentSlideIndex = 0;
     }
 
-    void PopulateTextField(){
-        if(slideData[currentSlideIndex].slideObject != null){
-            slideData[currentSlideIndex].textComponents = new List<TextComponentData>();
+    public void PopulateTextField(){
+        if(slideDatas[currentSlideIndex].slideObject != null){
+            Debug.Log($"Populating text field");
+
+            slideDatas[currentSlideIndex].textComponents = new List<TextComponentData>();
             
-            GetAllTextComponent(slideData[currentSlideIndex].slideObject);
+            GetAllTextComponent(slideDatas[currentSlideIndex].slideObject);
             
-            slideData[currentSlideIndex].slideName = slideData[currentSlideIndex].slideObject.name;
+            slideDatas[currentSlideIndex].slideName = slideDatas[currentSlideIndex].slideObject.name;
         }
     }
 
     void UpdateOldSlideData(){
-        oldSlideData[currentSlideIndex].slideName = slideData[currentSlideIndex].slideName;
-        oldSlideData[currentSlideIndex].slideObject = slideData[currentSlideIndex].slideObject;
+        oldSlideData[currentSlideIndex].slideName = slideDatas[currentSlideIndex].slideName;
+        oldSlideData[currentSlideIndex].slideObject = slideDatas[currentSlideIndex].slideObject;
 
         oldSlideData[currentSlideIndex].textComponents.Clear();
 
-        for(int i=0; i<slideData[currentSlideIndex].textComponents.Count; i++){
-            oldSlideData[currentSlideIndex].textComponents.Add(slideData[currentSlideIndex].textComponents[i]);
+        for(int i=0; i<slideDatas[currentSlideIndex].textComponents.Count; i++){
+            oldSlideData[currentSlideIndex].textComponents.Add(slideDatas[currentSlideIndex].textComponents[i]);
         }
     }
 
@@ -84,8 +88,12 @@ public class MainBlendedData : MonoBehaviour
 
     void GetAllTextComponent(GameObject rootObject){
         if(rootObject.GetComponent<Text>() != null || rootObject.GetComponent<TMP_Text>() != null){
-            slideData[currentSlideIndex].textComponents.Add(
-                new TextComponentData("G_"+(slideData[currentSlideIndex].textComponents.Count + 1).ToString(), rootObject)
+            string textFieldID = "G_"+(slideDatas[currentSlideIndex].textComponents.Count + 1).ToString();
+            if( !rootObject.name.Contains(textFieldID) ){
+                rootObject.name = textFieldID + rootObject.name;
+            }
+            slideDatas[currentSlideIndex].textComponents.Add(
+                new TextComponentData(textFieldID, rootObject)
             );
         }
         if(rootObject.transform.childCount > 0){
@@ -101,5 +109,7 @@ public class MainBlendedData : MonoBehaviour
         }
     }
 
-    private void OnValidate() {}
+    private void OnValidate() {
+
+    }
 }
