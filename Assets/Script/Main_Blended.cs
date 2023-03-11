@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -23,8 +23,6 @@ public class Main_Blended : MonoBehaviour
     [DllImport("__Internal")]
     static extern void SyllabyfyText(string syllabifytext);
 
-    [DllImport("__Internal")]
-    private static extern void SendBlendedData();
 
     public GameObject[] GA_levelsIG;
     public int levelno;
@@ -1149,17 +1147,17 @@ public class Main_Blended : MonoBehaviour
 #region ADD_SYLLABIFYING_SETUP
 
     void ChangeSyllabifyTCName(){
-        Debug.Log($"came to ChangeSyllabifyTCName");
+        // Debug.Log($"came to ChangeSyllabifyTCName");
         List<TextComponentData> textComponents = MainBlendedData.instance.slideDatas[levelno].textComponents;
 
         for(int i=0; i<textComponents.Count; i++){
             if(!textComponents[i].component.name.Contains(textComponents[i].componentID))
                 textComponents[i].component.name = textComponents[i].componentID + textComponents[i].component.name;
         }
-    } 
+    }
 
     void AddButtonToSyllabifyingTC(){
-        Debug.Log($"came to AddButtonToSyllabifyingTC");
+        // Debug.Log($"came to AddButtonToSyllabifyingTC");
 
         if(!HAS_SYLLABLE[levelno]) return;
 
@@ -1173,13 +1171,13 @@ public class Main_Blended : MonoBehaviour
             // textField = G_currenlevel.transform.Find(textComponentData[i].component.name);
             textField = FindGameObject(G_currenlevel, textComponentData[i].component.name);
             if(textField != null){
-            Debug.Log($"{textField} : {textField == null}");
-            if(textField.gameObject.GetComponent<Button>() == null){
-                Debug.Log("In if condition");
-                textField.gameObject.AddComponent<Button>().onClick.AddListener(() => { SendDataToSylabify(textField.GetComponent<Text>().text); });
-            }else{
-                Debug.Log("In else condition");
-                textField.gameObject.GetComponent<Button>().onClick.AddListener(() => { SendDataToSylabify(textField.GetComponent<Text>().text); });
+                Debug.Log($"{textField} : {textField == null}");
+                if(textField.gameObject.GetComponent<Button>() == null){
+                    Debug.Log("In if condition");
+                    textField.gameObject.AddComponent<Button>().onClick.AddListener(() => { SendDataToSylabify(textField.GetComponent<Text>().text); });
+                }else{
+                    Debug.Log("In else condition");
+                    textField.gameObject.GetComponent<Button>().onClick.AddListener(() => { SendDataToSylabify(textField.GetComponent<Text>().text); });
                 }
             }
         }

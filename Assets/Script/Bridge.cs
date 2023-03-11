@@ -15,6 +15,9 @@ public class Bridge : MonoBehaviour
     
     [DllImport("__Internal")]
     private static extern void Game(string name);
+
+    [DllImport("__Internal")]
+    private static extern void SetBlendedData(string value);
 #endif
 
     string[] slide_name;
@@ -22,6 +25,8 @@ public class Bridge : MonoBehaviour
 
     bool[] videoSlides;
     bool[] worksheetSlides;
+    bool[] syllableSlides;
+    bool[] grammerSlides;
 
     Html_values html_Values;
 
@@ -37,19 +42,23 @@ public class Bridge : MonoBehaviour
         slideInst = new string[Main_Blended.OBJ_main_blended.MAX_SLIDES];
         videoSlides = new bool[Main_Blended.OBJ_main_blended.MAX_SLIDES];
         worksheetSlides = new bool[Main_Blended.OBJ_main_blended.MAX_SLIDES];
+        syllableSlides = new bool[Main_Blended.OBJ_main_blended.MAX_SLIDES];
+        grammerSlides = new bool[Main_Blended.OBJ_main_blended.MAX_SLIDES];
 
         slide_name = Main_Blended.OBJ_main_blended.SLIDE_NAMES;
         slideInst = Main_Blended.OBJ_main_blended.TEACHER_INSTRUCTION;
         videoSlides = Main_Blended.OBJ_main_blended.HAS_VIDEO;
         worksheetSlides = Main_Blended.OBJ_main_blended.HAS_WORKSHEET;
+        syllableSlides = Main_Blended.OBJ_main_blended.HAS_SYLLABLE;
+        grammerSlides = Main_Blended.OBJ_main_blended.HAS_GRAMMER;
 
-       GetTeacherInst();
+        GetTeacherInst();
         getGameName();
     }
 
     public void GetTeacherInst()
     {
-        html_Values = new Html_values(slide_name, slideInst, videoSlides, worksheetSlides);
+        html_Values = new Html_values(slide_name, slideInst, videoSlides, worksheetSlides, syllableSlides, grammerSlides);
 
         string htmlJson = JsonConvert.SerializeObject(html_Values);
         string xValue = JsonConvert.DeserializeObject(htmlJson).ToString();
@@ -58,6 +67,7 @@ public class Bridge : MonoBehaviour
 
 
 #if UNITY_WEBGL && !UNITY_EDITOR
+    SetBlendedData(htmlJson);
     TeacherInst(xValue);
 #endif
 

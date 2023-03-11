@@ -3533,9 +3533,9 @@ GameObject:
   - component: {fileID: 2067067669}
   - component: {fileID: 2067067668}
   - component: {fileID: 2067067673}
-  - component: {fileID: 2067067672}
   - component: {fileID: 2067067676}
   - component: {fileID: 2067067675}
+  - component: {fileID: 2067067672}
   - component: {fileID: 2067067674}
   m_Layer: 5
   m_Name: Blended session
