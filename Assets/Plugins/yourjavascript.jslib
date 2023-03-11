@@ -1,5 +1,9 @@
 mergeInto(LibraryManager.library, {
 
+    SetBlendedData : function(jsonData){
+        SetBlendedData_(Pointer_stringify(jsonData));
+    },
+
     TeacherInst : function (htmlJson) {
         var json = Pointer_stringify(htmlJson)
 	    localStorage.setItem('htmlJson', json);
@@ -8,10 +12,6 @@ mergeInto(LibraryManager.library, {
     Game : function(name){
         var myGameName = Pointer_stringify(name)
         localStorage.setItem('gameName', myGameName);
-    },
-
-    SendBlendedData : function(slide_id, blended_activity_data) {
-        send_data();
     },
 
     SyllabyfyText : function(textToSyllabify) {
