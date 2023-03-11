@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -273,6 +273,17 @@ public class Main_Blended : MonoBehaviour
 
         Application.ExternalCall("send_blended_data", blendedData);
         // Debug.Log("Blended Data : "+blendedData);
+    }
+
+    Transform FindGameObject(GameObject rootObject, string gameObjectName){
+        if(gameObjectName == rootObject.name){
+            return rootObject.transform;
+        }
+        for(int i=0; i<rootObject.transform.childCount; i++){
+            Transform findObject = FindGameObject(rootObject.transform.GetChild(i).gameObject, gameObjectName);
+            if(findObject != null) return findObject;
+        }
+        return null;
     }
 
     private void Update()
@@ -1155,7 +1166,13 @@ public class Main_Blended : MonoBehaviour
         List<TextComponentData> textComponentData = MainBlendedData.instance.slideDatas[levelno].textComponents;
         Transform textField;
         for(int i=0; i<textComponentData.Count; i++){
-            textField = G_currenlevel.transform.Find(textComponentData[i].component.name);
+            Debug.Log(G_currenlevel.name);
+            Debug.Log($"{MainBlendedData.instance.slideDatas[levelno].slideName}");
+            Debug.Log($"{i} : {textComponentData[i].component.name}");
+
+            // textField = G_currenlevel.transform.Find(textComponentData[i].component.name);
+            textField = FindGameObject(G_currenlevel, textComponentData[i].component.name);
+            if(textField != null){
             Debug.Log($"{textField} : {textField == null}");
             if(textField.gameObject.GetComponent<Button>() == null){
                 Debug.Log("In if condition");
@@ -1163,6 +1180,7 @@ public class Main_Blended : MonoBehaviour
             }else{
                 Debug.Log("In else condition");
                 textField.gameObject.GetComponent<Button>().onClick.AddListener(() => { SendDataToSylabify(textField.GetComponent<Text>().text); });
+                }
             }
         }
     }
