@@ -14,8 +14,12 @@ mergeInto(LibraryManager.library, {
         localStorage.setItem('gameName', myGameName);
     },
 
-    SyllabyfyText : function(textToSyllabify) {
+    CallSyllabyfyText : function(textToSyllabify) {
         PerformSyllabifycation(UTF8ToString(textToSyllabify));
+    },
+
+    PassActivityScoreData : function(scoreData){
+        SetActivityScoreData(UTF8ToString(scoreData));
     }
 
 });
