@@ -20,9 +20,6 @@ using System.Runtime.InteropServices;
 
 public class Main_Blended : MonoBehaviour
 {
-    [DllImport("__Internal")]
-    static extern void SyllabyfyText(string syllabifytext);
-
 
     public GameObject[] GA_levelsIG;
     public int levelno;
@@ -123,6 +120,7 @@ public class Main_Blended : MonoBehaviour
     public string STR_API;
     public bool B_Reader;
     public string[] STRA_ScoreVal;
+    public BlendedOperations blendedOperations;
 
     void Awake()
     {
@@ -207,81 +205,6 @@ public class Main_Blended : MonoBehaviour
         int[] intVal = new int[]{2,3};
         // Application.ExternalCall("demo_func", intVal);
         // Application.ExternalCall("demo_func",);
-    }
-
-    public void SetBlendedData(string blendedData){
-        Debug.Log("From Unity ");
-        Debug.Log(blendedData);
-        Debug.Log("------------------------------------------------------------");
-        // JSONParser parser = new JSONParser();
-        blendedData = blendedData.Replace("\"[", "[").Replace("]\"", "]").Replace("\\", "");
-        JSONNode blendedParsedData = JSON.Parse(blendedData);
-
-        Debug.Log(blendedParsedData.GetType());
-        Debug.Log(blendedParsedData[0]);
-        Debug.Log(blendedParsedData.Count);
-
-        for(int i=0; i<blendedParsedData.Count; i++){
-            List<TextComponentData> slideTextComponents = MainBlendedData.instance.slideDatas[Int32.Parse(blendedParsedData[i]["slide_flow_id"]) - 1].textComponents;
-            
-            Debug.Log(MainBlendedData.instance.slideDatas[Int32.Parse(blendedParsedData[i]["slide_flow_id"])].slideName, MainBlendedData.instance.slideDatas[Int32.Parse(blendedParsedData[i]["slide_flow_id"])].slideObject);
-
-            foreach(var slideTextComponent in slideTextComponents){
-                Debug.Log(slideTextComponent.componentID + " ----- " + blendedParsedData[i]["component_id"]);
-                if(slideTextComponent.componentID == blendedParsedData[i]["component_id"]){
-                    Debug.Log("Came In chnage value to : "+blendedParsedData[i]["paragraph"]);
-                    if(slideTextComponent.component.GetComponent<Text>() != null){
-                        slideTextComponent.component.GetComponent<Text>().text = blendedParsedData[i]["paragraph"];
-                    }else {
-                        slideTextComponent.component.GetComponent<TMP_Text>().text = blendedParsedData[i]["paragraph"];
-                    }
-                }
-            }
-        }
-
-        THI_cloneLevels();
-    }
-
-    public void GetBlendedData(){
-        Debug.Log("Came to GetBlendedData");
-        string blendedData = "[";
-        List<SlideDataContainer> slideDataContainer = MainBlendedData.instance.slideDatas;
-
-        for(int i = 0; i < slideDataContainer.Count; i++){
-            SlideData slideData = new SlideData();
-            slideData.slideName = slideDataContainer[i].slideName;
-            List<string> slideTexts = new List<string>();
-            for(int j=0; j<slideDataContainer[i].textComponents.Count; j++){
-                slideTexts.Add(JsonUtility.ToJson(
-                    new TextComponent(
-                        slideDataContainer[i].textComponents[j].componentID, 
-                        (slideDataContainer[i].textComponents[j].component.GetComponent<Text>() != null) ? slideDataContainer[i].textComponents[j].component.GetComponent<Text>().text : slideDataContainer[i].textComponents[j].component.GetComponent<TMP_Text>().text
-                    )
-                ));
-            }
-            slideData.slideTexts = "["+string.Join(", ", slideTexts)+"]";
-
-            // for JSON formating
-            if( i > 0){
-                blendedData += ", ";
-            }
-            blendedData += JsonUtility.ToJson(slideData);
-        }
-        blendedData += "]";
-
-        Application.ExternalCall("send_blended_data", blendedData);
-        // Debug.Log("Blended Data : "+blendedData);
-    }
-
-    Transform FindGameObject(GameObject rootObject, string gameObjectName){
-        if(gameObjectName == rootObject.name){
-            return rootObject.transform;
-        }
-        for(int i=0; i<rootObject.transform.childCount; i++){
-            Transform findObject = FindGameObject(rootObject.transform.GetChild(i).gameObject, gameObjectName);
-            if(findObject != null) return findObject;
-        }
-        return null;
     }
 
     private void Update()
@@ -895,7 +818,7 @@ public class Main_Blended : MonoBehaviour
             Destroy(G_currenlevel);
         }
 
-        ChangeSyllabifyTCName();
+        blendedOperations.ChangeSyllabifyTCName();
 
         // var currentLevel = Instantiate(GA_levelsIG[levelno]);
         // MainBlendedData.instance.AssignData(levelno);
@@ -905,9 +828,9 @@ public class Main_Blended : MonoBehaviour
         currentLevel.transform.SetAsFirstSibling();
         G_currenlevel = currentLevel;
         
-        AddButtonToSyllabifyingTC();
+        blendedOperations.AddButtonToSyllabifyingTC();
         
-        CheckInCloneGameObject();
+        // CheckInCloneGameObject();
         //NEW IMMERSIVE READING
         if (currentLevel.GetComponent<Image>() != null)
         {
@@ -1142,52 +1065,5 @@ public class Main_Blended : MonoBehaviour
         //     // }
         // }
     }
-#endregion
-
-#region ADD_SYLLABIFYING_SETUP
-
-    void ChangeSyllabifyTCName(){
-        // Debug.Log($"came to ChangeSyllabifyTCName");
-        List<TextComponentData> textComponents = MainBlendedData.instance.slideDatas[levelno].textComponents;
-
-        for(int i=0; i<textComponents.Count; i++){
-            if(!textComponents[i].component.name.Contains(textComponents[i].componentID))
-                textComponents[i].component.name = textComponents[i].componentID + textComponents[i].component.name;
-        }
-    }
-
-    void AddButtonToSyllabifyingTC(){
-        // Debug.Log($"came to AddButtonToSyllabifyingTC");
-
-        if(!HAS_SYLLABLE[levelno]) return;
-
-        List<TextComponentData> textComponentData = MainBlendedData.instance.slideDatas[levelno].textComponents;
-        Transform textField;
-        for(int i=0; i<textComponentData.Count; i++){
-            Debug.Log(G_currenlevel.name);
-            Debug.Log($"{MainBlendedData.instance.slideDatas[levelno].slideName}");
-            Debug.Log($"{i} : {textComponentData[i].component.name}");
-
-            // textField = G_currenlevel.transform.Find(textComponentData[i].component.name);
-            textField = FindGameObject(G_currenlevel, textComponentData[i].component.name);
-            if(textField != null){
-                Debug.Log($"{textField} : {textField == null}");
-                if(textField.gameObject.GetComponent<Button>() == null){
-                    Debug.Log("In if condition");
-                    textField.gameObject.AddComponent<Button>().onClick.AddListener(() => { SendDataToSylabify(textField.GetComponent<Text>().text); });
-                }else{
-                    Debug.Log("In else condition");
-                    textField.gameObject.GetComponent<Button>().onClick.AddListener(() => { SendDataToSylabify(textField.GetComponent<Text>().text); });
-                }
-            }
-        }
-    }
-
-    void SendDataToSylabify(string dataToSyllabify){
-        Debug.Log("SendDataToSylabify ...");
-        Debug.Log(dataToSyllabify);
-        SyllabyfyText(dataToSyllabify);
-    }
-
 #endregion
 }
