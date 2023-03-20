@@ -17,20 +17,20 @@ public class CommonScript
 }
 
 [Serializable]
-public class SlideDataContainer{
-    public string slideName;
+public class Slide{
+    public string name;
     public GameObject slideObject;
-    public List<TextComponentData> textComponents;
+    public List<TextComponent> textComponents;
 }
 
 [Serializable]
-public class TextComponentData{
+public class TextComponent{
     public string componentID;
-    public GameObject component;
+    public GameObject textObject;
 
-    public TextComponentData(string componentID, GameObject component){
+    public TextComponent(string componentID, GameObject component){
         this.componentID = componentID;
-        this.component = component;
+        this.textObject = component;
     }
 }
 
@@ -41,10 +41,10 @@ public class SlideData{
 }
 
 [Serializable]
-public class TextComponent{
+public class TextComponentData{
     public string key;
     public string value;
-    public TextComponent(string id, string value){
+    public TextComponentData(string id, string value){
         this.key = id;
         this.value = value;
     }

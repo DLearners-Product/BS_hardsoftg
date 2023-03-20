@@ -41,7 +41,7 @@ public class BlendedOperations : MonoBehaviour
         JSONNode blendedParsedData = JSON.Parse(blendedData);
 
         for(int i=0; i<blendedParsedData.Count; i++){
-            List<TextComponentData> slideTextComponents = MainBlendedData.instance.slideDatas[Int32.Parse(blendedParsedData[i]["slide_flow_id"]) - 1].textComponents;
+            List<TextComponent> slideTextComponents = MainBlendedData.instance.slideDatas[Int32.Parse(blendedParsedData[i]["slide_flow_id"]) - 1].textComponents;
             
             // Debug.Log(MainBlendedData.instance.slideDatas[Int32.Parse(blendedParsedData[i]["slide_flow_id"])].slideName, MainBlendedData.instance.slideDatas[Int32.Parse(blendedParsedData[i]["slide_flow_id"])].slideObject);
 
@@ -49,10 +49,10 @@ public class BlendedOperations : MonoBehaviour
                 // Debug.Log(slideTextComponent.componentID + " ----- " + blendedParsedData[i]["component_id"]);
                 if(slideTextComponent.componentID == blendedParsedData[i]["component_id"]){
                     // Debug.Log("Came In chnage value to : "+blendedParsedData[i]["paragraph"]);
-                    if(slideTextComponent.component.GetComponent<Text>() != null){
-                        slideTextComponent.component.GetComponent<Text>().text = blendedParsedData[i]["paragraph"];
+                    if(slideTextComponent.textObject.GetComponent<Text>() != null){
+                        slideTextComponent.textObject.GetComponent<Text>().text = blendedParsedData[i]["paragraph"];
                     }else {
-                        slideTextComponent.component.GetComponent<TMP_Text>().text = blendedParsedData[i]["paragraph"];
+                        slideTextComponent.textObject.GetComponent<TMP_Text>().text = blendedParsedData[i]["paragraph"];
                     }
                 }
             }
@@ -63,17 +63,17 @@ public class BlendedOperations : MonoBehaviour
 
     public void GetBlendedData(){
         string blendedData = "[";
-        List<SlideDataContainer> slideDataContainer = MainBlendedData.instance.slideDatas;
+        List<Slide> slideDataContainer = MainBlendedData.instance.slideDatas;
 
         for(int i = 0; i < slideDataContainer.Count; i++){
             SlideData slideData = new SlideData();
-            slideData.slideName = slideDataContainer[i].slideName;
+            slideData.slideName = slideDataContainer[i].name;
             List<string> slideTexts = new List<string>();
             for(int j=0; j<slideDataContainer[i].textComponents.Count; j++){
                 slideTexts.Add(JsonUtility.ToJson(
-                    new TextComponent(
+                    new TextComponentData(
                         slideDataContainer[i].textComponents[j].componentID, 
-                        (slideDataContainer[i].textComponents[j].component.GetComponent<Text>() != null) ? slideDataContainer[i].textComponents[j].component.GetComponent<Text>().text : slideDataContainer[i].textComponents[j].component.GetComponent<TMP_Text>().text
+                        (slideDataContainer[i].textComponents[j].textObject.GetComponent<Text>() != null) ? slideDataContainer[i].textComponents[j].textObject.GetComponent<Text>().text : slideDataContainer[i].textComponents[j].textObject.GetComponent<TMP_Text>().text
                     )
                 ));
             }
@@ -108,11 +108,11 @@ public class BlendedOperations : MonoBehaviour
 
     public void ChangeSyllabifyTCName(){
         // Debug.Log($"came to ChangeSyllabifyTCName");
-        List<TextComponentData> textComponents = MainBlendedData.instance.slideDatas[Main_Blended.OBJ_main_blended.levelno].textComponents;
+        List<TextComponent> textComponents = MainBlendedData.instance.slideDatas[Main_Blended.OBJ_main_blended.levelno].textComponents;
 
         for(int i=0; i<textComponents.Count; i++){
-            if(!textComponents[i].component.name.Contains(textComponents[i].componentID))
-                textComponents[i].component.name = textComponents[i].componentID + textComponents[i].component.name;
+            if(!textComponents[i].textObject.name.Contains(textComponents[i].componentID))
+                textComponents[i].textObject.name = textComponents[i].componentID + textComponents[i].textObject.name;
         }
     }
 
@@ -131,24 +131,24 @@ public class BlendedOperations : MonoBehaviour
 
         if(!Main_Blended.OBJ_main_blended.HAS_SYLLABLE[Main_Blended.OBJ_main_blended.levelno]) return;
 
-        List<TextComponentData> textComponentData = MainBlendedData.instance.slideDatas[Main_Blended.OBJ_main_blended.levelno].textComponents;
+        List<TextComponent> textComponentData = MainBlendedData.instance.slideDatas[Main_Blended.OBJ_main_blended.levelno].textComponents;
 
         GameObject textField;
 
         for(int i=0; i<textComponentData.Count; i++){
-            textField = textComponentData[i].component;
+            textField = textComponentData[i].textObject;
             string textCompValue = (textField.GetComponent<Text>()) ? textField.GetComponent<Text>().text : textField.GetComponent<TMP_Text>().text;
 
             Button textBtn;
-            if(textComponentData[i].component.TryGetComponent<Button>(out textBtn) && CheckFunctionInPersistentListener(textBtn, nameof(SendDataToSylabify))) continue;
+            if(textComponentData[i].textObject.TryGetComponent<Button>(out textBtn) && CheckFunctionInPersistentListener(textBtn, nameof(SendDataToSylabify))) continue;
 
 
             UnityAction<string> action = new UnityAction<string>(SendDataToSylabify);
 
             if(textBtn == null)
-                textComponentData[i].component.AddComponent<Button>();
+                textComponentData[i].textObject.AddComponent<Button>();
 
-            UnityEventTools.AddStringPersistentListener(textComponentData[i].component.GetComponent<Button>().onClick, action, textCompValue);
+            UnityEventTools.AddStringPersistentListener(textComponentData[i].textObject.GetComponent<Button>().onClick, action, textCompValue);
         }
     }
 

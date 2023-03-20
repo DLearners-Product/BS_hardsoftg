@@ -8,16 +8,16 @@ using UnityEditor;
 [ExecuteInEditMode]
 public class MainBlendedData : MonoBehaviour
 {
-    public List<SlideDataContainer> slideDatas;
+    public List<Slide> slideDatas;
     List<int> slideDataCounts;
     public static MainBlendedData instance;
     List<GameObject> textObjects;
-    List<SlideDataContainer> oldSlideData;
+    List<Slide> oldSlideData;
     int currentSlideIndex = 0;
 
     private void Awake() {
         textObjects = new List<GameObject>();
-        oldSlideData = new List<SlideDataContainer>();
+        oldSlideData = new List<Slide>();
 
         if(instance == null){
             instance = this;
@@ -68,19 +68,19 @@ public class MainBlendedData : MonoBehaviour
         if(slideDatas[currentSlideIndex].slideObject != null){
             Debug.Log($"Populating text field");
 
-            slideDatas[currentSlideIndex].textComponents = new List<TextComponentData>();
+            slideDatas[currentSlideIndex].textComponents = new List<TextComponent>();
             
             GetAllTextComponent(slideDatas[currentSlideIndex].slideObject);
-            slideDatas[currentSlideIndex].slideName = slideDatas[currentSlideIndex].slideObject.name;
+            slideDatas[currentSlideIndex].name = slideDatas[currentSlideIndex].slideObject.name;
         }else{
             Debug.Log("Cam to else");
-            slideDatas[currentSlideIndex].slideName = "";
+            slideDatas[currentSlideIndex].name = "";
             slideDatas[currentSlideIndex].textComponents = null;
         }
     }
 
     void UpdateOldSlideData(){
-        oldSlideData[currentSlideIndex].slideName = slideDatas[currentSlideIndex].slideName;
+        oldSlideData[currentSlideIndex].name = slideDatas[currentSlideIndex].name;
         oldSlideData[currentSlideIndex].slideObject = slideDatas[currentSlideIndex].slideObject;
 
         oldSlideData[currentSlideIndex].textComponents.Clear();
@@ -108,7 +108,7 @@ public class MainBlendedData : MonoBehaviour
             // }
             Debug.Log(slideDatas[currentSlideIndex].textComponents == null);
             Debug.Log(slideDatas[currentSlideIndex] == null);
-            TextComponentData textComponentData = new TextComponentData(textFieldID, rootObject);
+            TextComponent textComponentData = new TextComponent(textFieldID, rootObject);
             slideDatas[currentSlideIndex].textComponents.Add(textComponentData);
             Debug.Log(slideDatas[currentSlideIndex].textComponents.Count+" Component added " +currentSlideIndex);
             return;
