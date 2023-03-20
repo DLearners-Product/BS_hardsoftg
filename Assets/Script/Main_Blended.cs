@@ -818,7 +818,8 @@ public class Main_Blended : MonoBehaviour
             Destroy(G_currenlevel);
         }
 
-        blendedOperations.ChangeSyllabifyTCName();
+        // blendedOperations.ChangeSyllabifyTCName();
+        blendedOperations.AddButtonToSyllabifyingTC();
 
         // var currentLevel = Instantiate(GA_levelsIG[levelno]);
         // MainBlendedData.instance.AssignData(levelno);
@@ -827,9 +828,7 @@ public class Main_Blended : MonoBehaviour
         currentLevel.transform.SetParent(GameObject.Find("Game_Panel").transform, false);
         currentLevel.transform.SetAsFirstSibling();
         G_currenlevel = currentLevel;
-        
-        blendedOperations.AddButtonToSyllabifyingTC();
-        
+                
         // CheckInCloneGameObject();
         //NEW IMMERSIVE READING
         if (currentLevel.GetComponent<Image>() != null)

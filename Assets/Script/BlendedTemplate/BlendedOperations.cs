@@ -5,6 +5,10 @@ using SimpleJSON;
 using System;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor.Events;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+
 public class BlendedOperations : MonoBehaviour
 {
     public Bridge bridge;
@@ -17,17 +21,24 @@ public class BlendedOperations : MonoBehaviour
         }
     }
 
+    Transform FindGameObject(GameObject rootObject, string gameObjectName){
+        if(gameObjectName == rootObject.name){
+            return rootObject.transform;
+        }
+        for(int i=0; i<rootObject.transform.childCount; i++){
+            Transform findObject = FindGameObject(rootObject.transform.GetChild(i).gameObject, gameObjectName);
+            if(findObject != null) return findObject;
+        }
+        return null;
+    }
+#region EXTERNAL_JS_INVOKE_FUNCTIONS
+
     public void SetBlendedData(string blendedData){
         // Debug.Log("From Unity ");
         // Debug.Log(blendedData);
         // Debug.Log("------------------------------------------------------------");
-        // JSONParser parser = new JSONParser();
         blendedData = blendedData.Replace("\"[", "[").Replace("]\"", "]").Replace("\\", "");
         JSONNode blendedParsedData = JSON.Parse(blendedData);
-
-        // Debug.Log(blendedParsedData.GetType());
-        // Debug.Log(blendedParsedData[0]);
-        // Debug.Log(blendedParsedData.Count);
 
         for(int i=0; i<blendedParsedData.Count; i++){
             List<TextComponentData> slideTextComponents = MainBlendedData.instance.slideDatas[Int32.Parse(blendedParsedData[i]["slide_flow_id"]) - 1].textComponents;
@@ -51,7 +62,6 @@ public class BlendedOperations : MonoBehaviour
     }
 
     public void GetBlendedData(){
-        Debug.Log("Came to GetBlendedData");
         string blendedData = "[";
         List<SlideDataContainer> slideDataContainer = MainBlendedData.instance.slideDatas;
 
@@ -77,21 +87,9 @@ public class BlendedOperations : MonoBehaviour
         }
         blendedData += "]";
 
-        Application.ExternalCall("send_blended_data", blendedData);
-        // Debug.Log("Blended Data : "+blendedData);
+        bridge.SendBlendedContentData(blendedData);
+        // Application.ExternalCall("send_blended_data", blendedData);
     }
-
-    Transform FindGameObject(GameObject rootObject, string gameObjectName){
-        if(gameObjectName == rootObject.name){
-            return rootObject.transform;
-        }
-        for(int i=0; i<rootObject.transform.childCount; i++){
-            Transform findObject = FindGameObject(rootObject.transform.GetChild(i).gameObject, gameObjectName);
-            if(findObject != null) return findObject;
-        }
-        return null;
-    }
-#region EXTERNAL_JS_INVOKE_FUNCTIONS
 
     // Called from external JS
     public void GetActivityScoreData(){
@@ -118,37 +116,44 @@ public class BlendedOperations : MonoBehaviour
         }
     }
 
+    bool CheckFunctionInPersistentListener(Button buttonComp, string functionName){
+        Debug.Log("In check function " + buttonComp.name, buttonComp.gameObject);
+        int persistentEventCount = buttonComp.onClick.GetPersistentEventCount();
+        for(int i=0; i<persistentEventCount; i++){
+            if(buttonComp.onClick.GetPersistentMethodName(i) == functionName){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void AddButtonToSyllabifyingTC(){
-        // Debug.Log($"came to AddButtonToSyllabifyingTC");
 
         if(!Main_Blended.OBJ_main_blended.HAS_SYLLABLE[Main_Blended.OBJ_main_blended.levelno]) return;
 
         List<TextComponentData> textComponentData = MainBlendedData.instance.slideDatas[Main_Blended.OBJ_main_blended.levelno].textComponents;
-        Transform textField;
-        // Debug.Log(Main_Blended.OBJ_main_blended.G_currenlevel.name);
+
+        GameObject textField;
+
         for(int i=0; i<textComponentData.Count; i++){
-            // Debug.Log($"{MainBlendedData.instance.slideDatas[Main_Blended.OBJ_main_blended.levelno].slideName}");
-            // Debug.Log($"{i} : {textComponentData[i].component.name}");
+            textField = textComponentData[i].component;
+            string textCompValue = (textField.GetComponent<Text>()) ? textField.GetComponent<Text>().text : textField.GetComponent<TMP_Text>().text;
 
-            textField = FindGameObject(Main_Blended.OBJ_main_blended.G_currenlevel, textComponentData[i].component.name);
-            if(textField != null){
-                // Debug.Log($"{textField} : {textField == null}");
+            Button textBtn;
+            if(textComponentData[i].component.TryGetComponent<Button>(out textBtn) && CheckFunctionInPersistentListener(textBtn, nameof(SendDataToSylabify))) continue;
 
-                string textCompValue = (textField.GetComponent<Text>()) ? textField.GetComponent<Text>().text : textField.GetComponent<TMP_Text>().text;
 
-                if(textField.gameObject.GetComponent<Button>() == null){
-                    // Debug.Log("In if condition");
-                    textField.gameObject.AddComponent<Button>().onClick.AddListener(() => { SendDataToSylabify(textCompValue); });
-                }else{
-                    // Debug.Log("In else condition");
-                    textField.gameObject.GetComponent<Button>().onClick.AddListener(() => { SendDataToSylabify(textCompValue); });
-                }
-                // Debug.Log($"Value : {textCompValue}");
-            }
+            UnityAction<string> action = new UnityAction<string>(SendDataToSylabify);
+
+            if(textBtn == null)
+                textComponentData[i].component.AddComponent<Button>();
+
+            UnityEventTools.AddStringPersistentListener(textComponentData[i].component.GetComponent<Button>().onClick, action, textCompValue);
         }
     }
 
     void SendDataToSylabify(string dataToSyllabify){
+        // string dataToSyllabify = EventSystem.current.currentSelectedGameObject.gameObject.name;
         Debug.Log("SendDataToSylabify ...");
         Debug.Log(dataToSyllabify);
         bridge.SyllabyfyText(dataToSyllabify);

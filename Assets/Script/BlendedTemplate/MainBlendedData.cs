@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
 
 [ExecuteInEditMode]
 public class MainBlendedData : MonoBehaviour
@@ -21,12 +22,16 @@ public class MainBlendedData : MonoBehaviour
         if(instance == null){
             instance = this;
         }
+        Debug.Log("Awake called..");
     }
 
     void Start()
     {
         Debug.Log($"start method called");
         slideDataCounts = new List<int>();
+
+        if(slideDatas == null || slideDatas.Count <= 0) return;
+
         for(int i=0; i<slideDatas.Count; i++){
             oldSlideData.Add(slideDatas[i]);
         }
@@ -40,6 +45,8 @@ public class MainBlendedData : MonoBehaviour
     }
 
     public void UpdateInspector(bool buttonClicked=false){
+        if(slideDatas == null || slideDatas.Count <= 0) return;
+
         for(; currentSlideIndex < slideDatas.Count; currentSlideIndex++){
             bool isNewActivity = ((oldSlideData.Count - 1) < currentSlideIndex && slideDatas[currentSlideIndex].slideObject != null);
             bool isOldActivityChanged = ((oldSlideData.Count) > currentSlideIndex && oldSlideData[currentSlideIndex].slideObject != slideDatas[currentSlideIndex].slideObject);
@@ -52,6 +59,7 @@ public class MainBlendedData : MonoBehaviour
                 UpdateOldSlideData();
             }
         }
+
         buttonClicked = false;
         currentSlideIndex = 0;
     }
@@ -63,8 +71,11 @@ public class MainBlendedData : MonoBehaviour
             slideDatas[currentSlideIndex].textComponents = new List<TextComponentData>();
             
             GetAllTextComponent(slideDatas[currentSlideIndex].slideObject);
-            
             slideDatas[currentSlideIndex].slideName = slideDatas[currentSlideIndex].slideObject.name;
+        }else{
+            Debug.Log("Cam to else");
+            slideDatas[currentSlideIndex].slideName = "";
+            slideDatas[currentSlideIndex].textComponents = null;
         }
     }
 
@@ -74,7 +85,7 @@ public class MainBlendedData : MonoBehaviour
 
         oldSlideData[currentSlideIndex].textComponents.Clear();
 
-        for(int i=0; i<slideDatas[currentSlideIndex].textComponents.Count; i++){
+        for(int i=0; slideDatas[currentSlideIndex].textComponents != null && i<slideDatas[currentSlideIndex].textComponents.Count; i++){
             oldSlideData[currentSlideIndex].textComponents.Add(slideDatas[currentSlideIndex].textComponents[i]);
         }
     }
@@ -86,14 +97,21 @@ public class MainBlendedData : MonoBehaviour
     // }
 
     void GetAllTextComponent(GameObject rootObject){
+        // Debug.Log(rootObject.GetComponent<Text>());
+        // Debug.Log(rootObject.GetComponent<TMP_Text>());
+
         if(rootObject.GetComponent<Text>() != null || rootObject.GetComponent<TMP_Text>() != null){
+            Debug.Log(slideDatas[currentSlideIndex].textComponents.Count+" "+rootObject.name, rootObject);
             string textFieldID = "G_"+(slideDatas[currentSlideIndex].textComponents.Count + 1).ToString();
-            if( !rootObject.name.Contains(textFieldID) ){
-                rootObject.name = textFieldID + rootObject.name;
-            }
-            slideDatas[currentSlideIndex].textComponents.Add(
-                new TextComponentData(textFieldID, rootObject)
-            );
+            // if( !rootObject.name.Contains(textFieldID) ){
+            //     rootObject.name = rootObject.name;
+            // }
+            Debug.Log(slideDatas[currentSlideIndex].textComponents == null);
+            Debug.Log(slideDatas[currentSlideIndex] == null);
+            TextComponentData textComponentData = new TextComponentData(textFieldID, rootObject);
+            slideDatas[currentSlideIndex].textComponents.Add(textComponentData);
+            Debug.Log(slideDatas[currentSlideIndex].textComponents.Count+" Component added " +currentSlideIndex);
+            return;
         }
         if(rootObject.transform.childCount > 0){
             for(int j=0; j<rootObject.transform.childCount; j++){
@@ -102,13 +120,8 @@ public class MainBlendedData : MonoBehaviour
         }
     }
 
-    void IterPrefabObject(GameObject prefab){
-        for(int i=0; i<prefab.transform.childCount; i++){
-            Debug.Log(prefab.transform.GetChild(i).name);
-        }
-    }
-
     private void OnValidate() {
 
     }
+
 }

@@ -24,6 +24,9 @@ public class Bridge : MonoBehaviour
 
     [DllImport("__Internal")]
     private static extern void PassActivityScoreData(string value);
+
+    [DllImport("__Internal")]
+    private static extern void PassBlendedContentDataToDB(string blendedContentData);
 #endif
 
     string[] slide_name;
@@ -101,5 +104,12 @@ public class Bridge : MonoBehaviour
 #if UNITY_WEBGL && !UNITY_EDITOR
         PassActivityScoreData(scoreData);
 #endif  
+    }
+
+    public void SendBlendedContentData(string blendedContentData){
+        Debug.Log("Blended Content : "+blendedContentData);
+#if UNITY_WEBGL && !UNITY_EDITOR
+        PassBlendedContentDataToDB(blendedContentData);
+#endif
     }
 }
